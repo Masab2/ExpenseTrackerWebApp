@@ -40,9 +40,14 @@ async function handleLogin(req, res) {
     return res.status(400).json({ error: "User does not exist" });
   }
 
-  return res.status(200).json({ message: "Login successful" });
+  if (user.password !== password) {
+    return res.status(400).json({ error: "Invalid password" });
+  } else {
+    return res.status(200).json({ message: "Login successful", user });
+  }
 }
 
 module.exports = {
   handleRegisterUser,
+  handleLogin,
 };

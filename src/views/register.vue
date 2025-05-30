@@ -41,7 +41,6 @@ const form = reactive({
 });
 
 async function submitForm() {
-    console.log("Submitting form:", { ...form });
      try {
         const response = await axios.post("http://localhost:3000/api/auth/register", form);
         if (response.status === 201) {
