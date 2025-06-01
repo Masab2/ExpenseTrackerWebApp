@@ -5,7 +5,7 @@ import Login from '../views/Login.vue'
 import Register from '../views/register.vue'
 import Dashboard from '../views/Dashboard.vue'
 import AddExpense from '../views/AddExpense.vue'
-import Settings from '../views/Setting.vue'
+import ExpenseList from '../views/ExpenseList.vue'
 
 const routes = [
   {
@@ -22,7 +22,7 @@ const routes = [
     children: [
       { path: '/dashboard', component: Dashboard },
       { path: '/add', component: AddExpense },
-      { path: '/settings', component: Settings },
+      { path: '/expenseList', component: ExpenseList },      
     ],
   },
 ]

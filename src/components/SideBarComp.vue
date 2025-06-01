@@ -19,11 +19,11 @@
         ➕ Add Expense
       </router-link>
       <router-link
-        to="/settings"
+        to="/expenseList"
         class="hover:bg-blue-700 px-4 py-2 rounded-md"
         active-class="bg-blue-700"
       >
-        ⚙️ Settings
+        📝 Expense List
       </router-link>
       <button class="text-left hover:bg-red-600 px-4 py-2 rounded-md mt-auto" @click="logout">
         🚪 Logout

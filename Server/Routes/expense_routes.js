@@ -1,4 +1,4 @@
-const { handleAddExpense, handleGetExpenses } = require("../Controllers/add_expense_controller");
+const { handleAddExpense, handleGetExpenses, handleEditExpense, handleDeleteExpense } = require("../Controllers/add_expense_controller");
 
 const router = require("express").Router();
 
@@ -6,6 +6,12 @@ const router = require("express").Router();
 router.post("/add", handleAddExpense);
 
 // Get Expenses API
-router.post("/get", handleGetExpenses);
+router.get("/get", handleGetExpenses);
+
+// Edit Expense API
+router.put("/edit", handleEditExpense);
+
+// Delete Expense API
+router.delete("/delete", handleDeleteExpense);
 
 module.exports = router;

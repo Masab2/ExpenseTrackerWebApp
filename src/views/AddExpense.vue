@@ -1,6 +1,7 @@
 <template>
-  <div class="mx-auto p-6 bg-white rounded-lg shadow-md">
-    <h2 class="text-md font-semibold text-gray-800 mb-6">➕ Add New Expense</h2>
+  <HeaderComp msg="Add Expense" />
+
+  <div class="mx-auto p-6 m-2 bg-white rounded-lg shadow-md">
 
     <form @submit.prevent="submitExpense" class="space-y-5">
       <!-- Expense Title -->
@@ -58,16 +59,17 @@
   </div>
 </template>
 
-<script setup lang="ts">
+<script setup>
 import { reactive } from "vue";
 import axios from "axios";
 import { useToast } from "vue-toastification";
+import HeaderComp from "../components/HeaderComp.vue";
 
 
 const toast = useToast();
 const form = reactive({
   title: "",
-  amount: null as number | null,
+  amount: null,
   date: "",
   category: "",
   notes: "",
