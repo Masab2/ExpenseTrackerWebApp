@@ -36,7 +36,9 @@
 import { useRouter } from 'vue-router'
 
 const router = useRouter()
+
 function logout() {
+  localStorage.removeItem('userId')
   router.push('/')
 }
 </script>

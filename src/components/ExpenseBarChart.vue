@@ -8,7 +8,7 @@
 </template>
 
 <script setup lang="ts">
-import {ref, watch } from "vue";
+import { ref, watch } from "vue";
 import {
   Chart,
   LineController,
@@ -22,7 +22,6 @@ import {
   Filler,
 } from "chart.js";
 
-
 interface Expense {
   amount: number;
   date: string;
@@ -31,9 +30,6 @@ interface Expense {
 const props = defineProps<{
   expenses: Expense[];
 }>();
-
-
-
 
 Chart.register(
   LineController,
@@ -44,16 +40,13 @@ Chart.register(
   Title,
   Tooltip,
   Legend,
-  Filler,
+  Filler
 );
 
 const lineChartRef = ref<HTMLCanvasElement | null>(null);
 
 function aggregateExpensesByMonth(expenses: Expense[]) {
   const monthlyTotals: number[] = Array(12).fill(0);
-  console.log(monthlyTotals.length);
-  
-
   expenses.forEach((expense) => {
     const month = new Date(expense.date).getMonth();
     monthlyTotals[month] += expense.amount;
@@ -70,7 +63,20 @@ watch(
     new Chart(lineChartRef.value, {
       type: "line",
       data: {
-        labels: ["January", "February", "March", "April", "May", "June", "July" , "August", "September", "October", "November", "December"],
+        labels: [
+          "January",
+          "February",
+          "March",
+          "April",
+          "May",
+          "June",
+          "July",
+          "August",
+          "September",
+          "October",
+          "November",
+          "December",
+        ],
         datasets: [
           {
             label: "Monthly Expenses",
@@ -102,7 +108,6 @@ watch(
   },
   { immediate: true }
 );
-
 </script>
 
 <style scoped>
